@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="/combine" method="post" enctype="multipart/form-data">
+        select audio file 
+        <input type="file" name="tone" accept=".wav" required>
+        select vocal file
+        <input type="file" name="music" accept=".wav" required>
+        <button type="submit">Combine</button>
+    </form>
+</body>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('combineForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Use FormData to construct the form data
+        const formData = new FormData(this);
+
+        // Make an AJAX request to handle the form submission
+        fetch('/combine', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.blob())
+        .then(blob => {
+            // Create a Blob URL for the downloaded file
+            const url = window.URL.createObjectURL(blob);
+            
+            // Create an anchor element to trigger the download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'combined_audio.wav';
+            
+            // Append the anchor element to the body and trigger a click event
+            document.body.appendChild(a);
+            a.click();
+            
+            // Remove the anchor element
+            document.body.removeChild(a);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+</script>
+
+
+</html>

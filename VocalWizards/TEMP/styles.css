@@ -1,0 +1,20 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#equalizer-container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#equalizer-sliders {
+    margin-top: 20px;
+}
+
+canvas {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}

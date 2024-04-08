@@ -1,0 +1,78 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("black-and-white-2837731.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensures the body takes up the full viewport height */
+}
+
+.container2 {
+    max-width: 600px;
+    padding: 20px;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url("black-and-white-2837731.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: transparent!important;
+    color: white!important;
+    border: 2px solid #009688!important;
+    border-radius: 2px!important;
+    width: 620px; 
+    height: 50px; 
+    background: #009688;
+}
+
+.contact-form button:hover {
+        background-color: #009688!important;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .contact-form button {
+        width: 110%;
+    }
+    .contact-form button:hover {
+        background-color: #009688!important;
+}
+}

@@ -1,0 +1,127 @@
+$white: #ffffff;
+$black: #000000;
+$primary1: #6714e4;
+$primary2: #371e71;
+
+@mixin main-font {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin hero_btn($col1, $col2, $pad1, $pad2, $bRadius) {
+  display: inline-block;
+  padding: $pad1 $pad2;
+  background-color: $col1;
+  color: $col2;
+  border-radius: $bRadius;
+
+  &:hover {
+    background-color: lighten($color: $col1, $amount: 5);
+  }
+}
+
+@mixin upperBold {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+body {
+  @include main-font;
+  color: #f3ecec;
+  background-color: #ffffff;
+}
+
+.layout_padding {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.layout_padding2 {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 90px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 90px;
+}
+n
+
+// service section
+
+.service_section {
+  text-align: center;
+
+  .heading_container {
+    justify-content: center;
+  }
+
+  .service_container {
+    display: flex;
+    justify-content: center;
+    padding: 35px 0;
+    flex-wrap: wrap;
+
+    .box {
+      margin: 25px 1%;
+      flex-basis: 31%;
+      padding: 35px 25px 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px 0 rgba($color: #ffffff, $alpha: .15);
+      border-top: 15px solid transparent;
+      overflow: hidden;
+      transition: all .1s;
+
+      .img-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 125px;
+
+        img {
+          width: 90px;
+        }
+
+
+      }
+
+      .detail-box {
+        margin-top: 25px;
+
+        h5 {
+          color: #2e0e5f;
+          font-weight: 600;
+          position: relative;
+        }
+      }
+
+      &:hover,
+      &.active {
+        border-top: 15px solid #512a97;
+      }
+
+    }
+  }
+
+  .btn-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+
+    a {
+      @include hero_btn($primary1, $white, 10px, 35px, 35px);
+    }
+  }
+}
+
+// end service section

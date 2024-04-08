@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Music Equalizer{% endblock %}
+{% block content %}
+
+    <link rel="stylesheet" href="{{url_for('static',filename='equlizePage.css')}}">
+    <div class="banner">
+       
+
+    <h1 style="margin-right: 20px;margin-bottom:100px;display: flex;color:#fff;justify-content: center;padding-top: 20px;">Equalizer Page</h1>
+
+    <div class="equalizer">
+        <div class="band">
+            <label for="band1" style="color:#fff">60 Hz</label>
+            <input type="range" id="band1" min="0" max="100" value="50">
+        </div>
+        <div class="band">
+            <label for="band2"style="color:#fff">150 Hz</label>
+            <input type="range" id="band2" min="0" max="100" value="50">
+        </div>
+        <div class="band">
+            <label for="band3"style="color:#fff">400 Hz</label>
+            <input type="range" id="band3" min="0" max="100" value="50">
+        </div>
+        <div class="band">
+            <label for="band4"style="color:#fff">1 kHz</label>
+            <input type="range" id="band4" min="0" max="100" value="50">
+        </div>
+        <div class="band">
+            <label for="band5"style="color:#fff">2.5 kHz</label>
+            <input type="range" id="band5" min="0" max="100" value="50">
+        </div>
+        <div class="band">
+            <label for="band6"style="color:#fff">6 kHz</label>
+            <input type="range" id="band6" min="0" max="100" value="50">
+        </div>
+        <div class="band">
+            <label for="band7"style="color:#fff">15 kHz</label>
+            <input type="range" id="band7" min="0" max="100" value="50">
+        </div>
+    </div>
+    <div class="music-controls">
+        <label for="music-file"style="color:#fff">Choose a music track:</label>
+        <input type="file" id="music-file" accept=".mp3, .ogg, .wav">
+
+        <button id="play-button">Play</button>
+        <button>Mix Master Track</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+     {% include "footer.html" %}
+    {% endblock %}
+
+

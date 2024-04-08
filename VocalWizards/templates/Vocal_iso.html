@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %}Vocal Isolation page{% endblock %}
+{% block content%}
+{% with messages= get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category,msg in messages %}
+            {% if category == 'success' %}
+                <div class="alert alert-success text-center w-100 mx-auto"  role="alert">
+            {% elif category == 'danger' %}
+                <div class="alert alert-danger text-center w-100 mx-auto"  role="alert">
+            {% else %}
+                <div class="alert alert-info text-center w-100 mx-auto" role="alert">
+            {% endif %}
+                <b>{{msg}}</b>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith%}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='visuvalize.css')}}">
+    <script src="{{url_for('static',filename='visuvalize.js')}}"></script>
+    <style>
+    
+    video#video-background {
+        position: fixed;
+        top: 50%; /* Center the video vertically */
+        left: 50%; /* Center the video horizontally */
+        transform: translate(-50%, -50%); /* Translate the video to center */
+        min-width: 100%;
+        min-height: 100%;
+        width: fit-content;
+        height: fit-content;
+        z-index: -1; /* Set the video behind other content */
+    }
+        #container2 {
+            margin-top: 150px;
+            text-align: center;
+            color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: center;
+   
+            
+        }
+        h1 {
+            font-size: 66px; /* Adjust the font size for the heading */
+            margin-bottom: 20px;
+        }
+        input::file-selector-button {
+  background-color: transparent;
+  border: 1px solid #009688; /* Adding a border for visibility */
+  border-radius: 5px; /* Reducing the border radius for a smaller appearance */
+  color: #dbc8c8;
+  padding: 0.75rem 1rem; /* Reducing padding to make it smaller */
+  text-shadow: 0 1px 1px #333;
+  transition: all 0.25s;
+}
+
+input::file-selector-button:hover {
+  background-color: rgba(0, 150, 136, 0.2); /* Transparent background color on hover */
+  transform: scale(0.95); /* Reducing size slightly on hover */
+}
+        
+        button {
+            color: rgb(5, 5, 5);
+            font-size: 16px; /* Adjust the font size for the input and button */
+            margin-bottom: 10px;
+            padding: 10px 20px; /* Add padding to the button */
+            border-radius: 50px; /* Make the button fully rounded */
+            background-color: #27b42700; /* Background color of the button */
+            cursor: pointer; /* Add cursor pointer on hover */
+            border-radius: 25px;
+            margin: 20px 10px;
+            font-weight: bold;
+            border: 2px solid #009688;
+            padding: 10px 30px;
+            color: #fdf9f9;
+            text-decoration: none;
+            transition: 0.5s ease;
+        }
+        #custom-file-upload {
+            background-color: #00ff00; /* Background color of the custom button */
+            color: rgb(5, 5, 5);
+            font-size: 16px; /* Adjust the font size for the input and button */
+            margin-bottom: 10px;
+            padding: 10px 20px; /* Add padding to the button */
+            border-radius: 50px; /* Make the button fully rounded */
+            border: none; /* Remove border */
+            cursor: pointer; /* Add cursor pointer on hover */
+        }
+        #audioFile {
+            margin-bottom: 20px;
+        }
+        
+       
+    </style>
+
+
+    <video autoplay muted loop id="video-background">
+        <source src="../static/Vocal.mp4"> 
+    </video>
+
+
+
+    <div id="container2">
+       
+        <form action="/vocal_isolation" method="post" enctype="multipart/form-data" id="vocalIsolationForm">
+        <h1>Vocal Isolation Web Tool</h1>
+        <label for="audioFile">Select Audio File:</label>
+        <input type="file" name="audioFile" id="audioFile" accept=".mp3, .wav, .mkv" onchange="fileSelected()" required />
+        <button type="submit">Vocal Isolation</button>
+          
+        </form>
+    </div>
+    <div class="container" id="waw">
+        <canvas id="canvas" style="height:200px;width: 100%;border-radius:30px;border:1px solid #009688" onmouseenter="showAudio()"></canvas>
+        <h5 id="name" style="color:white"></h5>
+        <audio id="audio" onmouseleave="hideAudio()" controls></audio>
+    </div><br><br><br><br><br><br><br><br><br><br><br>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+<script>
+    function showAudio() {
+        var audio = document.getElementById('audio');
+        audio.style.display = 'block';
+    }
+
+    function hideAudio() {
+        var audio = document.getElementById('audio');
+        audio.style.display = 'none';
+    }
+</script>
+{% include "footer.html" %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+{% endblock %}

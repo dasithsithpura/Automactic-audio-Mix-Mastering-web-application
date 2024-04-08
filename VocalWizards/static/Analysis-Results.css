@@ -1,0 +1,79 @@
+.wg{
+   height: 100vh;
+   width: 100%;
+  
+    background-image:url("analysPageeee.jpeg")
+}
+
+#results {
+    display: flex;
+    height: 45vh;
+   padding-top: 200px;
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: animate__slideInRight 1s ease;
+}
+
+@keyframes animate__slideInRight {
+    from {
+        background-position: left;
+    }
+    to {
+        background-position: right;
+    }
+}
+
+.analysis-results{
+    margin-top: -90px; 
+    animation: animate__slideInDown 1s ease;
+}
+
+@keyframes animate__slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.analysis-results h2{
+    font-size: 54px;
+    color: white;
+    margin-left: 60px;
+}
+
+.analysis-results p{
+    font-size: 16px;
+    font-weight: 100;
+    color: white;
+    margin: 20px 0 10px;
+    margin-left: 105px;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .wg {
+        margin: 0px; 
+        color:white
+    }
+    .analysis-results{
+        margin-top: 100px;
+    }
+    #results{
+        padding-top:0px;
+    }
+    .analysis-results h2 {
+        font-size: 24px; 
+        margin-left: 20px; 
+    }
+
+    .analysis-results p {
+        font-size: 16px; 
+        margin: 10px 0 5px; 
+        margin-left: 50px; 
+    }
+}

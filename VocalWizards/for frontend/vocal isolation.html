@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='visuvalize.css')}}">
+    <script src="{{url_for('static',filename='visuvalize.js')}}"></script>
+</head>
+<body>
+
+
+
+    <form action="/vocal_isolation" method="post" enctype="multipart/form-data" id="vocalIsolationForm">
+        <label for="audioFile">Select Audio File:</label>
+        <input type="file" name="audioFile" id="audioFile" accept=".mp3, .wav, .mkv" required />
+        <br>
+        <canvas id="canvas" style="height:200px;width: 100%;"></canvas>
+        <h3 id="name"></h3>
+        <audio id="audio" controls></audio>
+        <div id="background"></div><br>
+        <button type="submit" onclick="showVocalIsolationForm()">Vocal Isolation</button>
+    </form>
+
+    
+</body>
+</html>

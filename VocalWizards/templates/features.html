@@ -1,0 +1,189 @@
+
+{% extends "base.html" %}
+{% block title %}Features{% endblock %}
+{% block content%}
+<div class="tf">
+{% with messages= get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category,msg in messages %}
+            {% if category == 'success' %}
+                <div class="alert alert-success text-center w-100 mx-auto"  role="alert">
+            {% elif category == 'danger' %}
+                <div class="alert alert-danger text-center w-100 mx-auto"  role="alert">
+            {% else %}
+                <div class="alert alert-info text-center w-100 mx-auto" role="alert">
+            {% endif %}
+                <b>{{msg}}</b>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith%}
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="{{url_for('static',filename='style.css')}}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{{url_for('static',filename='responsive.css')}}" rel="stylesheet" />
+
+  <style>
+    .tf {
+      background-image: url("{{url_for('static',filename='wall.jpg')}}");
+     /* Optional: Adjusts the background image size */
+    }
+  </style>
+</head>
+
+
+  <!-- service section -->
+  <section class="service_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h1>
+          <b>Features</b>
+        </h1>
+      </div>
+
+      <div class="service_container">
+        <!-- box 1 -->
+        <div class="box active">
+          <div class="img-box" >
+            <img src="{{url_for('static',filename='vocal-isolation-high-resolution-logo-white-transparent.png')}}" class="img1" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              VOCAL ISOLATION
+            </h5>
+            <p>
+              Vocal isolation emphasizes vocals while minimizing background noise.
+            </p> 
+            <a href="/isolation"><button class="btn" style="background: #009688;">Use</button></a>
+          </div>
+        </div>
+        <!-- box 2 -->
+        <div class="box active">
+          <div class="img-box">
+            <img src="{{url_for('static',filename='automatic-reverb-high-resolution-logo-white-transparent.png')}}" class="img1" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              AUTOMATIC REVERB
+            </h5>
+            <p>
+              Auto-reverb adds depth to audio with automatic reverb effects.
+            </p>
+            <a href="/reverb"><button class="btn" style="background: #009688;">Use</button></a>
+          </div>
+        </div>
+        <!-- box 3 -->
+        <div class="box active">
+          <div class="img-box">
+            <img src="{{url_for('static',filename='automatic-audio-mix--master-high-resolution-logo-white-transparent.png')}}" class="img1" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              AUTOMATIC AUDIO MIX & MASTER
+            </h5>
+            <p>
+              Auto-mixing/mastering enhances audio automatically.
+            </p>
+            <a href="/compressor"><button class="btn" style="background: #009688;">Use</button></a>
+          </div>
+        </div>
+      </div> <!-- Close service_container -->
+
+      <!-- service_container for remaining boxes -->
+      <div class="service_container">
+        <!-- box 4 -->
+        <div class="box active">
+          <div class="img-box">
+            <img src="{{url_for('static',filename='manual-sound-control-high-resolution-logo-white-transparent.png')}}" class="img1" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              MANUAL SOUND CONTROL
+            </h5>
+            <p>
+              Manual sound control allows precise adjustment of audio settings
+            </p>
+            <a href="/equalizing123"><button class="btn" style="background: #009688;">Use</button></a>
+          </div>
+        </div>
+        <!-- box 5 -->
+        <div class="box active">
+          <div class="img-box">
+            <img src="{{url_for('static',filename='vocal-replacement-high-resolution-logo-white-transparent.png')}}" class="img1" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              VOCAL REPLACEMENT
+            </h5>
+            <p>
+              Vocal replacement swaps original vocals with alternate recordings.
+            </p>
+            <a href="/combine"><button class="btn" style="background: #009688;">Use</button></a>
+          </div>
+        </div>
+        <!-- box 6 -->
+        <div class="box active">
+          <div class="img-box">
+            <img src="{{url_for('static',filename='audio-analizer-high-resolution-logo-white-transparent.png')}}" class="img1" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              AUDIO ANALYZER
+            </h5>
+            <p>
+              Audio analyzer detects and interprets sound characteristics
+            </p>
+            <a href="/Audio_Analysing"><button class="btn" style="background: #009688;">Use</button></a>
+          </div>
+        </div>
+
+
+        <div class="box active">
+          <div class="img-box">
+            <img src="{{url_for('static',filename='multiband-dynamic-high-resolution-logo-white-transparent.png')}}" class="img1" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Multiband Dinamic 
+            </h5>
+            <p>
+              Multiband dynamic adjusts audio across frequency bands.
+            </p>
+            <a href="/mutibandDynamic"><button class="btn" style="background: #009688;">Use</button></a>
+          </div>
+        </div>
+      </div> <!-- Close service_container -->
+    </div> <!-- Close container -->
+  </section>
+
+  
+
+  <!-- JavaScript -->
+  <script src="{{url_for('static',filename='jquery-3.4.1.min.js')}}"></script>
+  <script src="{{url_for('static',filename='bootstrap.js')}}"></script>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+ {% include "footer.html" %}
+
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+{% endblock %}

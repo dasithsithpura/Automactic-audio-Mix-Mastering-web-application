@@ -1,0 +1,16 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('black-and-white-2837731.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensures the body takes up the full viewport height */
+}
+
+h1{
+    color: white;
+}

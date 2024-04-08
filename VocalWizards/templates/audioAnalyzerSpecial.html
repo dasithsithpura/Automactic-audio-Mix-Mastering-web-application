@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='visuvalize.css')}}">
+    <script src="{{url_for('static',filename='visuvalize.js')}}"></script>
+</head>
+<body>
+    
+
+<h1>Audio Analyzer</h1>
+
+<form action="/analyze" method="post" enctype="multipart/form-data">
+    <label for="audioFile">Select Audio File:</label>
+    <input type="file" id="audioFile" name="audioFile" accept=".mp3, .wav, .mkv" required />
+    <br><br><br><br>
+    <canvas id="canvas" style="height:200px;width: 100%;"></canvas>
+    <h3 id="name"></h3>
+    <audio id="audio" controls></audio>
+    <div id="background"></div>
+    <br><br><br><br><br>
+    <button type="submit">Analyze</button>
+</form>
+
+<div id="results">
+    <h2>Analysis Results:</h2>
+    {% if mid_value is defined and low_value is defined and high_value is defined %}
+        <p>Mid Value: {{ mid_value }}</p>
+        <p>Low Value: {{ low_value }}</p>
+        <p>High Value: {{ high_value }}</p>
+
+        {% if mid_suggestion is defined %}
+            <p>Suggested Mid Adjustment: {{ mid_suggestion }}</p>
+        {% endif %}
+
+        {% if low_suggestion is defined %}
+            <p>Suggested Low Adjustment: {{ low_suggestion }}</p>
+        {% endif %}
+
+        {% if high_suggestion is defined %}
+            <p>Suggested High Adjustment: {{ high_suggestion }}</p>
+        {% endif %}
+
+    {% else %}
+        <p>Upload an audio file and click Analyze to see results.</p>
+    {% endif %}
+</div>
+</body>
+</html>

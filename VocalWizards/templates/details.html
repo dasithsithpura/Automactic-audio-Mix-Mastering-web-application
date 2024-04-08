@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='visuvalize.css')}}">
+    <script src="{{url_for('static',filename='visuvalize.js')}}"></script>
+   
+</head>
+<body>
+    <h1>Audio Analyzer</h1>
+
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <label for="audioFile">Select Audio File:</label>
+        <input type="file" id="audioFile" name="audioFile" accept=".mp3, .wav, .mkv" required />
+        <br><br><br><br>
+        <canvas id="canvas" style="height:200px;width: 100%;"></canvas>
+        <h3 id="name"></h3>
+        <audio id="audio" controls></audio>
+        <div id="background"></div>
+        <br><br><br><br><br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    <div id="results">
+        <h2>Analysis Results:</h2>
+        {% if mid_value is defined and low_value is defined and high_value is defined %}
+            <p>Mid Value: {{ mid_value }}</p>
+            <p>Low Value: {{ low_value }}</p>
+            <p>High Value: {{ high_value }}</p>
+
+            {% if mid_suggestion is defined %}
+                <p>Suggested Mid Adjustment: {{ mid_suggestion }}</p>
+            {% endif %}
+
+            {% if low_suggestion is defined %}
+                <p>Suggested Low Adjustment: {{ low_suggestion }}</p>
+            {% endif %}
+
+            {% if high_suggestion is defined %}
+                <p>Suggested High Adjustment: {{ high_suggestion }}</p>
+            {% endif %}
+
+        {% else %}
+            <p>Upload an audio file and click Analyze to see results.</p>
+        {% endif %}
+    </div>
+
+    <!-- "Add Reverb" button and JavaScript function -->
+    <form action="/reverb" method="post" enctype="multipart/form-data" id="reverbForm">
+        <label for="audioFile2">Select Audio File:</label>
+        <input type="file" name="audioFile" id="audioFile2" accept=".mp3, .wav, .mkv" required />
+        <canvas id="canvas2" style="height:200px;width: 100%;"></canvas>
+        <h3 id="name2"></h3>
+        <audio id="audio2" controls></audio>
+        <div id="background"></div>
+        <br>
+        <button type="submit">Add Reverb</button>
+    </form>
+   
+    
+
+    <!-- "Vocal Isolation" button and JavaScript function -->
+    <form action="/vocal_isolation" method="post" enctype="multipart/form-data" id="vocalIsolationForm">
+        <label for="audioFile">Select Audio File:</label>
+        <input type="file" name="audioFile" id="audioFile" accept=".mp3, .wav, .mkv" required />
+        <br>
+        <canvas id="canvas" style="height:200px;width: 100%;"></canvas>
+        <h3 id="name"></h3>
+        <audio id="audio" controls></audio>
+        <div id="background"></div><br>
+        <button type="submit" onclick="showVocalIsolationForm()">Vocal Isolation</button>
+    </form>
+
+
+
+
+    
+
+    <h1>Vocal Replacement</h1>
+
+    <form action="/combine" method="post" enctype="multipart/form-data">
+        <input type="file" name="tone" accept=".wav" required>
+        <input type="file" name="music" accept=".wav" required>
+        <button type="submit">Combine</button>
+    </form>
+
+
+
+    <script>
+        function showVocalIsolationForm() {
+            var vocalIsolationForm = document.getElementById('vocalIsolationForm');
+            vocalIsolationForm.style.display = 'block';
+        }
+
+//uncomment this for the vocal replacement part
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     document.querySelector('form').addEventListener('submit', function() {
+        //         setTimeout(() => {
+        //             window.location.href = '/combine';
+        //         }, 1000);
+        //     });
+        // });
+
+
+
+        function downloadFile(filePath) {
+            console.log("The file path is : "+filePath)
+            var downloadLink = document.createElement('a');
+            downloadLink.href =filePath;
+            downloadLink.download = '../reverb_added_audio.wav';
+            console.log("The file path is : "+ downloadLink.href)
+    
+    // Trigger a click on the link to start the download
+        downloadLink.click();
+    
+    // Remove the dynamically created link from the document
+       
+}
+
+    </script>
+</body>
+</html>

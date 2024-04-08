@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Compressor</title>
+</head>
+<body>
+    <h1>Audio Compressor</h1>
+    <form action="/compress" method="post" enctype="multipart/form-data">
+        <input type="file" name="audio_file" accept=".mp3, .wav, .mkv" required><br><br>
+        <label for="threshold">Threshold:</label>
+        <input type="range" id="threshold" name="threshold" min="-50" max="0" value="-20"><span id="thresholdValue">-20</span><br><br>
+        <label for="ratio">Ratio:</label>
+        <input type="range" id="ratio" name="ratio" min="1" max="20" value="4"><span id="ratioValue">4</span><br><br>
+        <label for="attack_time">Attack Time:</label>
+        <input type="range" id="attack_time" name="attack_time" min="0" max="1" step="0.01" value="0.1"><span id="attackTimeValue">0.1</span><br><br>
+        <label for="release_time">Release Time:</label>
+        <input type="range" id="release_time" name="release_time" min="0" max="1" step="0.01" value="0.5"><span id="releaseTimeValue">0.5</span><br><br>
+        <label for="gain">Gain:</label>
+        <input type="range" id="gain" name="gain" min="-20" max="20" value="0" step="0.1"><span id="gainValue">0</span><br><br>
+        <input type="submit" value="Compress">
+    </form>
+    
+    <script>
+        // Display current value of threshold
+        const threshold = document.getElementById("threshold");
+        const thresholdValue = document.getElementById("thresholdValue");
+        thresholdValue.textContent = threshold.value;
+        threshold.addEventListener("input", function() {
+            thresholdValue.textContent = this.value;
+        });
+
+        // Display current value of ratio
+        const ratio = document.getElementById("ratio");
+        const ratioValue = document.getElementById("ratioValue");
+        ratioValue.textContent = ratio.value;
+        ratio.addEventListener("input", function() {
+            ratioValue.textContent = this.value;
+        });
+
+        // Display current value of attack time
+        const attackTime = document.getElementById("attack_time");
+        const attackTimeValue = document.getElementById("attackTimeValue");
+        attackTimeValue.textContent = attackTime.value;
+        attackTime.addEventListener("input", function() {
+            attackTimeValue.textContent = this.value;
+        });
+
+        // Display current value of release time
+        const releaseTime = document.getElementById("release_time");
+        const releaseTimeValue = document.getElementById("releaseTimeValue");
+        releaseTimeValue.textContent = releaseTime.value;
+        releaseTime.addEventListener("input", function() {
+            releaseTimeValue.textContent = this.value;
+        });
+
+        // Display current value of gain
+        const gain = document.getElementById("gain");
+        const gainValue = document.getElementById("gainValue");
+        gainValue.textContent = gain.value;
+        gain.addEventListener("input", function() {
+            gainValue.textContent = this.value;
+        });
+    </script>
+</body>
+</html>

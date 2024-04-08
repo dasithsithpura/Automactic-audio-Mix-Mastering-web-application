@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title%} AboutUS {% endblock %}
+{% block content %}
+    <link rel="stylesheet" href="{{url_for('static',filename='AboutUs.css')}}">
+
+    <div class="main1">
+
+    <div class="container1">
+        <h1>About Us</h1>
+        <section class="hidden" id="left1">
+            <img class="simple"  width="400px" height="500px"  src="{{url_for('static',filename='isuru.jpg')}}" alt="">
+            <div class="con1">
+                <h2>Isuru Rathnayake</h2>
+                <p>I am a full-stack developer with expertise <br>in both front-end and back-end technologies,<br> proficient in creating end-to-end web applications.</p>
+            </div>
+        </section>
+
+        <section class="hidden" id="right1">
+            <img  class="simple" width="400px" height="500px" src="{{url_for('static',filename='dasith.jpeg')}}" alt="">
+            <div class="con2">
+                <h2>Dasith Sithpura</h2>
+                <p>I am a full-stack developer with expertise <br>in both front-end and back-end technologies,<br> proficient in creating end-to-end web applications.</p>
+            </div>
+            
+        </section>
+
+        <section class="hidden" id="left2">
+            <img  class="simple"  width="400px" height="500px" src="{{url_for('static',filename='Screenshot 2024-03-12 at 11.46.39.png')}}" alt="">
+            <div class="con1">
+                <h2>Savindu Rashane</h2>
+                <p>I am a full-stack developer with expertise <br>in both front-end and back-end technologies,<br> proficient in creating end-to-end web applications.</p>
+            </div>
+        </section>
+
+        <section class="hidden" id="right2">
+            <img  class="simple"   width="400px" height="500px"  src="{{url_for('static',filename='WhatsApp Image 2023-07-22 at 12.18.06.jpeg')}}" alt="">
+            <div class="con2">
+                <h2>Themiya Wanigasekara</h2>
+                <p>I am a full-stack developer with expertise <br>in both front-end and back-end technologies,<br> proficient in creating end-to-end web applications.</p>
+            </div>
+            
+        </section>
+
+        <section class="hidden" id="left3">
+            <img  class="simple" width="400px" height="500px" src="{{url_for('static',filename='movinduDinusara.jpeg')}}" alt="">
+            <div class="con1">
+                <h2>Movindu Dinusara</h2>
+                <p>I am a full-stack developer with expertise <br>in both front-end and back-end technologies,<br> proficient in creating end-to-end web applications.</p>
+            </div>
+        </section>
+    </div>
+</div>
+
+    <script src="{{url_for('static',filename='AboutUs.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+     {% include "footer.html" %}
+
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+{% endblock %}

@@ -1,0 +1,123 @@
+body {
+  font-family: "Poppins", sans-serif;
+  color: #f0e5e5;
+}
+img{
+  color: #f0e5e5;
+}
+
+.layout_padding {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.layout_padding2 {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+
+.layout_padding2-top {
+  padding-top: 45px;
+}
+
+.layout_padding2-bottom {
+  padding-bottom: 45px;
+}
+
+.layout_padding-top {
+  padding-top: 90px;
+}
+
+.layout_padding-bottom {
+  padding-bottom: 90px;
+}
+
+
+.service_section {
+  text-align: center;
+}
+
+.service_section .heading_container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.service_section .service_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 35px 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.service_section .service_container .box {
+  margin: 25px 1%;
+  -ms-flex-preferred-size: 31%;
+      flex-basis: 31%;
+  padding: 35px 25px 25px;
+  border-radius: 15px;
+  -webkit-box-shadow: 0 0 10px 0 rgba(243, 231, 231, 0.15);
+          box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.15);
+  border-top: 15px solid transparent;
+  overflow: hidden;
+  -webkit-transition: all .1s;
+  transition: all .1s;
+}
+
+.service_section .service_container .box .img-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 125px;
+}
+
+.service_section .service_container .box .img-box img {
+  width: 200px;
+}
+
+.service_section .service_container .box .detail-box {
+  margin-top: 25px;
+}
+
+.service_section .service_container .box .detail-box h5 {
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+}
+
+.service_section .service_container .box:hover, .service_section .service_container .box.active {
+  border-top: 15px solid #009688;
+}
+
+.service_section .btn-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 25px;
+}
+
+.service_section .btn-box a {
+  display: inline-block;
+  padding: 10px 35px;
+  background-color: #4b208c;
+  color: #ffffff;
+  border-radius: 35px;
+}
+
+.service_section .btn-box a:hover {
+  background-color: #5625a1;
+}

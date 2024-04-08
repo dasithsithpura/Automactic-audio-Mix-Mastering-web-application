@@ -1,0 +1,123 @@
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+<section class="sendOTP" >
+{% extends "base.html" %}
+
+
+{% block title%}sendOTP{% endblock%}
+{% block content %}
+<style>
+    form{
+        border-radius:20px;
+        
+        padding:15px;
+        padding-bottom: 40px;
+    }
+    
+    .input-group {
+    display: flex;
+    justify-content: center;
+    }
+  .signUp{
+    background-color: transparent!important;
+    color: white!important;
+    border: 2px solid #009688!important;
+    border-radius: 2px!important;
+    width: 200px; 
+    height: 50px; 
+}
+.signUp:hover{
+    background-color: #009688!important;
+} 
+.signInbtn{
+    background-color: white!important;
+    color: orangered!important;
+    border: 2px solid orangered!important;
+    border-radius: 2px!important;
+    width: 200px; 
+    height: 50px; 
+    }
+.image{
+    width: 340px;
+    height: 380px;
+    }
+.pageName{
+    background-color: #0c0D36;
+    align-items: center;
+    }
+
+
+</style>
+{% with messages= get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category,msg in messages %}
+            {% if category == 'success' %}
+                <div class="alert alert-success text-center w-100 mx-auto"  role="alert">
+            {% elif category == 'danger' %}
+                <div class="alert alert-danger text-center w-100 mx-auto"  role="alert">
+            {% else %}
+                <div class="alert alert-info text-center w-100 mx-auto" role="alert">
+            {% endif %}
+                <b>{{msg}}</b>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith%}
+
+    <div class="container">
+     
+          <div class=" text-center" style="margin-top:10%" >
+           
+            <h2 class="text-light"><b>Find Your Account</b></h2>
+          </div><br>
+      
+          <div class="row g-4 align-items-center justify-content-center">
+           
+            <div class="col-md-7 col-lg-4" >
+              <h5 class="mb-3 text-light mx-3" >Enter OTP Here</h5>
+              <div id="msg"></div>
+              <form class="neeon" action="/check" method="POST" id="form_data">
+                <div class="row g-3">
+               
+                
+      
+                  <div class="col-12">
+                    <label for="OTP" class="form-label text-light">OTP Code</label>
+                    <input type="number" class="form-control" name="OTP" id="OTP" placeholder="XXXX">
+                  
+                  </div>
+                  <div class="form-floating">
+                    <input type="hidden" id="email" name="email" class="form-control" value="{{ session['email'] }}">
+                  </div>
+                
+      
+                  
+                </div>
+                <hr class="my-2 text-light">
+                <div class="loginBtn">
+                  <button class="signUp w-100 btn-lg" name=submit type="submit" style="background: #009688;">Sign in</button><br><br>
+                  
+                </div>
+                <button class="signUp w-100 btn-lg" name="normal" onclick="window.location.href='login.php';">Cancel</button>
+                <br>
+                
+                
+
+              
+            </form>
+            </div>
+          </div>
+        <br>
+        <br>
+        </div>
+      </section>
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+      
+
+
+{% include "footer.html" %}
+
+{% endblock%}

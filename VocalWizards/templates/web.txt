@@ -1,0 +1,6 @@
+https://codepen.io/gregh/pen/jyXMYY
+
+https://orangeable.com/javascript/equalizer-web-audio-api
+
+
+https://stackoverflow.com/questions/30065093/web-audio-api-equalizer

@@ -1,0 +1,57 @@
+
+  #audioFile {
+    position: relative;
+    
+    z-index: 3;
+  }
+  
+  #canvas {
+   
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 200px;
+  }
+  
+  audio {
+    left: 10px;
+    bottom: 10px;
+    width: calc(100% - 25px);
+    z-index: 3;
+  }
+  
+  #name {
+    color: black;
+    font-family: monospace;
+  }
+  
+  #background {
+   
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(transparent,#00035f,transparent);
+    background-size: 100% 7px;
+    animation: bg 1s infinite linear;
+    z-index: 2;
+    opacity: 0.3;
+  }
+  
+  @keyframes bg {
+    0%{ background-position: 0 0; }
+    100%{ background-position: 8px 8px; }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /**/

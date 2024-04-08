@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='footer.css')}}">
+    <title>{% block title%}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+    body{
+        overflow-x:hidden;
+       
+    }
+
+    .dropit:hover{
+      background: #009688;
+
+    }
+
+    #c1{
+      background: black;
+    }
+    .nav nav-link {
+      list-style: none;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+li::after {
+      content: '';
+      height: 3px;
+      width: 0;
+      background: #009688;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      transition: 1s;
+      color:white
+    }
+
+    .nav li:hover::after {
+      width: 100%;
+      
+    }
+    .navbar3 li {
+  position: relative;
+}
+
+
+
+</style>
+<script>
+    function redirectToLoginPage() {
+        // Replace 'login.html' with the actual path to your login page
+        window.location.href = '/login';
+    }
+
+    function redirectToSignupPage() {
+        // Replace 'signup.html' with the actual path to your signup page
+        window.location.href = '/register';
+    }
+</script>
+  </head>
+  <body style="background: black;">
+<header class="p-3 text-white" id="c1">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 navbar3" id="un">
+          
+          <li><a href="/" class="nav-link px-3 text-light">HOME</a></li>
+          <li><a href="/features" class="nav-link px-3 text-light">FEATURES</a></li>
+          <li><a href="/contact" class="nav-link px-3 text-light">CONTACT</a></li>
+          <li><a href="/faq" class="nav-link px-3 text-light">FAQs</a></li>
+          <li><a href="/aboutus" class="nav-link px-3 text-light">ABOUT</a></li>
+        </ul>
+     
+        {% if not session['username'] %}
+        <div class="text-end">
+          <button type="button" class="btn btn-outline-light me-2"  onclick="redirectToLoginPage()"><b>Login</b></button>
+          <button type="button" class="btn btn-outline-light" style="background: #009688;color:white;"  onmouseover="this.style.background='white';this.style.color='black'" onmouseout="this.style.background='#009688';this.style.color='white'" onclick="redirectToSignupPage()"><b>Sign-up</b></button>
+        </div>
+        {% else %}
+        <div class="text-end mx-2">
+              <div class="dropdown">
+              <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><b><img src="{{ url_for('static', filename='icon-5404125_1280.webp') }}" height="40px" width="40px"></b></a>             
+                </button>
+               
+                <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item text-light dropit" href="#">{{ session['username'] }}</a>
+                  <a class="dropdown-item text-light dropit" href="#">Manage Account</a>
+                  <a class="dropdown-item text-light dropit" href="/logout">Logout</a>               
+                </div>
+            </div>
+        </div>
+       {% endif %}
+
+
+
+     
+  
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div id="container">
+      {% block content %}
+
+      {% endblock %}
+    
+    
+    
+    </div>
+   
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+</html>

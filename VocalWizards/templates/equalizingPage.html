@@ -1,0 +1,165 @@
+{% extends "base.html"%}
+{% block title %}Audio Equalizer{% endblock %}
+{% block content %}
+
+{% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category,msg in messages %}
+            {% if category=='success'%}
+                <div class="alert alert-success text-center w-100 mx-auto" role="alert">
+            {% elif category=='danger'%}
+                <div class="alert alert-danger text-center w-100 mx-auto" role="alert">
+            {% else %}
+                <div class="alert alert-info text-center w-100 mx-auto" role="alert">
+            {% endif %}
+
+                <b>{{msg}}</b>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<style>  
+    #eqbody {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #a9a9a9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      transition: color 0.3s ease;
+      background-image: url("../static/mixing-board-black-and-white.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      overflow: hidden;
+    }
+    h1{
+      color: white;
+    }
+    form {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 600px;
+      margin: 50px auto;
+      transition: background-color 0.3s ease;
+    }
+    input[type="range"] {
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: #333;
+      outline: none;
+      opacity: 0.7;
+      transition: opacity 0.2s, background-color 0.3s ease;
+    }
+    input[type="range"]:hover {
+      opacity: 1;
+      background-color: white; 
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white; 
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      background-color: white;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #a9a9a9; 
+      cursor: pointer;
+    }
+    input[type="file"],
+    input[type="submit"] {
+      cursor: pointer;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333; 
+      color: #fff;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #484848; 
+      transform: translateY(-2px);
+    }
+    label,
+    span {
+      color: white; 
+      transition: color 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    label,
+    span {
+      animation: fadeIn 0.5s ease-out;
+    }
+    label{
+      margin: 20px;
+    }
+    .label1{
+      margin-bottom: 30px;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 600px) {
+        form {
+            max-width: 90%;
+        }
+    }
+  </style>
+</head>
+<div id="eqbody" >
+  <div class="container">
+      <h1>Audio Equalizer</h1>
+      <form action="/equalizerProcessing1" method="post" enctype="multipart/form-data">
+          <label for="audioFile">Choose a WAV file:</label>
+          <input type="file" id="audioFile" name="audio" accept=".wav, .mp3">
+          <br>
+          <div class="label1">
+              <label for="bass">Bass :</label>
+              <input type="range" class="form-control-range" id="bass" name="bass" min="0" max="20" step="0.1" value="1">
+          </div>
+          <div class="label1">
+              <label for="midrange">Midrange :</label>
+              <input type="range" class="form-control-range" id="midrange" name="midrange" min="0" max="20" step="0.1" value="1">
+          </div>
+          <div class="label1">
+              <label for="treble">Treble :</label>
+              <input type="range" class="form-control-range" id="treble" name="treble" min="0" max="20" step="0.1" value="1">
+          </div>
+          <input type="submit" value="Upload">
+      </form>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+{% include "footer.html" %}
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+{% endblock %}

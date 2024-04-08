@@ -1,0 +1,48 @@
+/* styles.css */
+.rf {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('wp2587740-wallpaper-music.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.page-wrapper {
+    width: 60%;
+    justify-content: center;
+}
+
+.container4 {
+    max-width: 800px;
+   
+
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.625);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #009688;
+}
+
+h1 {
+    text-align: center;
+}
+
+details {
+    margin-bottom: 20px;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+p {
+    margin-top: 10px;
+    color: #000000;
+}

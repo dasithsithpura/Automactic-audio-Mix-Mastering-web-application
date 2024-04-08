@@ -1,0 +1,119 @@
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='login.css')}}">
+<section class="login" >
+{% extends "base.html" %}
+{% block title %}Find{% endblock %}
+{% block content %}
+<style>
+    
+    form{
+        border-radius:20px;
+       
+        padding:15px;
+        padding-bottom: 40px;
+    }
+    .input-group {
+    display: flex;
+    justify-content: center;
+    }
+    .signUp{
+    background-color: transparent!important;
+    color: white!important;
+    border: 2px solid #009688!important;
+    border-radius: 2px!important;
+    width: 200px; 
+    height: 50px; 
+}
+.signUp:hover{
+    background-color: #009688!important;
+} 
+.signInbtn:hover{
+    background-color: #009688!important;
+} 
+.signInbtn{
+  background-color: transparent!important;
+    color: white!important;
+    border: 2px solid #009688!important;
+    border-radius: 2px!important;
+    width: 200px; 
+    height: 50px; 
+    }
+.image{
+    width: 340px;
+    height: 380px;
+    }
+.pageName{
+    background-color: #0c0D36;
+    align-items: center;
+    }
+
+</style>
+
+{% with messages= get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category,msg in messages %}
+            {% if category == 'success' %}
+                <div class="alert alert-success text-center w-100 mx-auto"  role="alert">
+            {% elif category == 'danger' %}
+                <div class="alert alert-danger text-center w-100 mx-auto"  role="alert">
+            {% else %}
+                <div class="alert alert-info text-center w-100 mx-auto" role="alert">
+            {% endif %}
+                <b>{{msg}}</b>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith%}
+
+    <div class="container">
+          <div class="py-5 text-center">
+           
+           
+          </div>
+      
+          <div class="row g-5 align-items-center justify-content-center" style="margin-top: 3%;">
+            
+            <div class="col-md-7 col-lg-4 " >
+             
+              <h4 class="mb-3 text-light text-center">Enter Your Email Here</h4>
+              <div id="msg"></div>
+              <form class="neeon" action="/send" method="POST" id="form_data">
+                <div class="row g-3">
+               
+                
+      
+                  <div class="col-12">
+                    <label for="email" class="form-label text-light">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                  
+                  </div>
+      
+                  
+                </div>
+                <hr class="my-4">
+                <div class="loginBtn">
+                <button class="signUp w-100 btn-lg" name=submit value="submit" type="submit">Search</button>
+                </div>
+                <br>
+                <button class="signInbtn w-100 btn-lg" name="normal" onclick="window.location.href='';">Already have an Account? Register</button>
+                
+
+              
+            </form>
+            </div>
+          </div>
+        <br>
+        <br>
+      </section>
+
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+       {% include "footer.html" %}
+{% endblock %}
+
+
+
+
+
+
+
+
